@@ -17,7 +17,10 @@ monServeurHTTP.on("request", function(leMessageEntrant, leMessageSortant){
   // )
 
   let corpsDeLaRequete = '';
+  // On reconstitue progressivement le corps de la requête.
   leMessageEntrant.on('data', function(morceauDeDonnees){
+    // Cet évenement est déclenché plusieurs fois au fur et à mesure
+    // que le serveur télécharge le corps de la requête.
     //corpsDeLaRequete = corpsDeLaRequete + morceauDeDonnees;
     corpsDeLaRequete += morceauDeDonnees;
   });
