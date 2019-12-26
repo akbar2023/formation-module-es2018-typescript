@@ -69,6 +69,22 @@
         ressort aura donc pour longueur finale +10 ou -10. Vérifiez que le sens
         de contraction initial a bien été conservé.
       */
+
+      let ressort = {
+        longueur: 20,
+        contracter: function (diviseur) {
+          return (this.longueur / diviseur);
+        },
+        decontracter: function(length) {
+          contracter = ressort.contracter;
+          if(contracter > 0) {
+            this.longueur = length;
+          }
+          if(contracter < 0) {
+            this.longueur = -length;
+          }
+        }
+      }
     </script>
     <noscript>
       <p>VirtuoWorks® - tous droits réservés©</p>
