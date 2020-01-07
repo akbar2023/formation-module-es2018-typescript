@@ -1,6 +1,8 @@
 "use strict";
 
-
+/**
+ * Méthode d'instance et statiques
+ */
 var BatisseurDePyramides = function(hauteur){
   this.forme = "triangulaire";
   this.hauteur = hauteur;
@@ -36,6 +38,7 @@ BatisseurDePyramides.quiEstLaMaitriseDOuvrage(); // affiche "... Pharaon" dans l
 // "... Pharaon" c'est la maitrise d'ouvrage de n'importe quel pyramide.
 
 // En ES6+
+
 // encapsulation à l'aide d'un bloc class
 class ConstructeurDePyramides {
   constructor(hauteur){
@@ -80,4 +83,75 @@ var ConstructeurDePyramides = (function(){
   return ConstructeurDePyramides;
 }()); // Exécution immédiate
 */
+
+/**
+ * Les transferts de contexte
+ */
+
+var unePersonne = {
+  prenom: "Sami",
+  waitForIt: function() {
+    // Gérer le transfert de contexte en utilisant la portée des variables
+    /*
+    var that = this;
+    window.setTimeout(function(){
+      console.log("My name is " + that.prenom);
+    }, 2000);
+    */
+
+    // Gérer le transfert de contexte avec la méthode .bind()
+    // Version détaillée
+    /*var maFonction = function(){
+      console.log("My name is " + this.prenom);
+    };
+
+    var maFonctionAvecThisFixe = maFonction.bind(this);
+
+    window.setTimeout(maFonctionAvecThisFixe, 2000);*/
+
+    // Version compacte
+    /*window.setTimeout(function(){
+      console.log("My name is " + this.prenom);
+    }.bind(this), 2000);*/
+
+    // Gérer le transfert de contexte avec les fonction flèches
+    window.setTimeout(() => {
+      console.log("My name is " + this.prenom);
+    }, 2000);
+
+  }
+}
+
+/**
+ * Calcul des coordonnées d'un point selon une direction.
+ */
+var xA = 5; // coordonnées d'origine
+var yA = 4; // coordonnées d'origine
+
+var xB = 12; // coordonnées aléatoire
+var yB = 15; // coordonnées aléatoire
+var coefficient = (yB - yA) / (xB - xA); // coefficient directeur
+
+// équation de la droite est de la forme y = coefficient * x + inconnue donc :
+var inconnue = yA - coefficient * xA; // on détermine l'inconnue en utilisant le point d'origine.
+// maintenant, on connait le coefficient directeur de l'inconnue de l'équation de droite.
+
+var x = xA; // point de départ
+var y = yA; // point de départ
+
+// A chaque fois qu'on veut se déplacer d'un pas de 0.1 pixel (par exemple) :
+var incrementArbitraire = 0.1;
+// Maintenant on peut incrémenter (ou décrementer) x et retrouver le y correspondant comme suit
+xCible = x + incrementArbitraire;
+yCible = coefficient * xCible + inconnue;
+
+// Si l'incrementation sur l'axe y est supérieure l'increment arbitraire.
+if( Math.abs(yCible - y) > Math.abs(incrementArbitraire) && coefficient > 0) {
+  // OU l'inverse, si on souhaite retrouver le x à partir d'un y incrementé :
+  yCible = y + incrementArbitraire;
+  xCible = (yCible - inconnue) / coefficient;
+}
+
+
+
 
