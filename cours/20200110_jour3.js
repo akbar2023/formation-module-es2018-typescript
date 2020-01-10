@@ -189,13 +189,75 @@ class FabricantDePcChinoisES6 {
   }
 
   static quelEstLAdresseDuSiege() { // méthode statique (attaché au constructeur)
-    console.log("Quelque part dans la zone franche de Shenzen...");
+    console.log(`Quelque part dans la zone franche de Shenzen...`);
   }
 }
 
-var lePcDeYanisEnES6 = new FabricantDePcChinoisES6(1500, 16);
+const lePcDeYanisEnES6 = new FabricantDePcChinoisES6(1500, 16);
 
 console.log(lePcDeYanisEnES5);
 console.log(lePcDeYanisEnES6);
 
 FabricantDePcChinoisES6.quelEstLAdresseDuSiege();
+
+/**
+ * Design pattern : "sous-classe" ("sub-class")
+ * Imitation de l'héritage de classe en
+ */
+
+// ES3/5 :
+var FabricantDeMachineACafeES5 = function(prix, marque){
+  this.prix = prix;
+  this.marque = marque;
+  this.utiliseDesDosette = true;
+  this.reservoir = 100;
+  this.couleur = "noir";
+}
+
+FabricantDeMachineACafeES5.prototype.clignote = function(){
+  setInterval(function(){
+    console.log("Clic clac !");
+  }, 1000);
+}
+
+var FabricantDeMachineATheES5 = function(prix, marque) {
+  FabricantDeMachineACafeES5.call(this, prix, marque);
+  this.couleur = "rouge";
+  this.estAutomatique = true;
+}
+
+FabricantDeMachineATheES5.prototype = Object.create(FabricantDeMachineACafeES5.prototype);
+
+var maMachineAThe = new FabricantDeMachineATheES5(100, "Nestlé");
+
+maMachineAThe.clignote();
+
+// ES6+, on peut utiliser le mot clé extends et la fonction mot clé super()
+class FabricantDeMachineACafeES6 {
+  constructor(prix, marque) {
+    this.prix = prix;
+    this.marque = marque;
+    this.utiliseDesDosette = true;
+    this.reservoir = 100;
+    this.couleur = `noir`;
+  }
+
+  clignote() {
+    setInterval(function(){
+      console.log(`Clic clac !`);
+    }, 1000);
+  }
+}
+
+class FabricantDeMachineATheES6 extends FabricantDeMachineACafeES6 {
+  constructor(prix, marque){
+    super(prix, marque); //FabricantDeMachineACafeES6.call(this, prix, marque);
+    this.couleur = "rouge";
+    this.estAutomatique = true;
+  }
+}
+
+const maMachineEnES6 = new FabricantDeMachineATheES6(150, "Nestlé");
+
+maMachineEnES6.suprise();
+
