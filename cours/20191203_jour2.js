@@ -34,18 +34,21 @@ let retour = module.require("./20191203_jour1_module_secondaire.js");
 
 console.log(retour);
 // Charge et exécute le fichier du module secondaire à la racine de node_modules.
-module.require("module_secondaire_dans_le_dossier_node_modules");
+// module.require("module_secondaire_dans_le_dossier_node_modules");
 // Charge et exécute le fichier du module secondaire (index.js) dans un sous dossier du dossier node_modules.
-module.require("module_secondaire_dans_un_sous_dossier");
+// module.require("module_secondaire_dans_un_sous_dossier");
 
 const moduleFileSystem = module.require("fs");
 
-moduleFileSystem.writeFile("test.txt", "Ceci est un nouveau fichier", {
-  encoding: "utf8"
-}, function(erreur){
-  if (erreur) {
-    console.log("impossible de créér le fichier");
-  } else {
-    console.log("fichier créé.");
+moduleFileSystem.writeFile("test.txt", "Ceci est un nouveau fichier",
+  {
+    encoding: "utf8"
+  },
+  function (erreur) {
+    if (erreur) {
+      console.log("impossible de créér le fichier");
+    } else {
+      console.log("fichier créé.");
+    }
   }
-});
+);
