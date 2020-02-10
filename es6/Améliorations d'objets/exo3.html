@@ -78,7 +78,9 @@
 
       eleves: function() {
         for(eleve in this) {
-          console.log(eleve + " : " + this[eleve]);
+          if(typeof this[eleve] === "number") {
+            console.log(this[eleve]);
+          }
         }
       },
       elevesDetails: function() {
@@ -91,29 +93,22 @@
 
     const Science = Object.create(MaClasse);
     
-      Science.leo = 135453568749;
-      Science.logan2 = 5354685516488;
-      Science.logan3 = 5354685516488;
-      Science.logan4 = 5354685516488;
-      Science.logan5 = 5354685516488;
-      Science.logan6 = 5354685516488;
-      Science.logan7 = 5354685516488;
-      Science.logan8 = 5354685516488;
-      Science.logan9 = 5354685516488;
-      Science.logan10 = 5354685516488;
-      Science.logan11 = 5354685516488;
-      Science.logan12 = 5354685516488;
-      Science.logan13 = 5354685516488;
-      Science.logan14 = 5354685516488;
-      Science.logan15 = 5354685516488;
-      Science.logan16 = 5354685516488;
-
-      Science.eleves = function() {
-        for(eleve in Science) {
-          console.log(eleve + " : " + Science[eleve]);
-        }
-        console.log("Hello");
-      }
+      Science.eleve1 = 135453568749;
+      Science.eleve2 = 5354685516488;
+      Science.eleve3 = 2354685516488;
+      Science.eleve4 = 3354685516488;
+      Science.eleve5 = 5354685516488;
+      Science.eleve6 = 3354685516488;
+      Science.eleve7 = 7354685516488;
+      Science.eleve8 = 9354685516488;
+      Science.eleve9 = 2354685516488;
+      Science.eleve10 = 35354685516488;
+      Science.eleve11 = 55354685516488;
+      Science.eleve12 = 53454685516488;
+      Science.eleve13 = 53544685516488;
+      Science.eleve14 = 53548685516488;
+      Science.eleve15 = 53546895516488;
+      Science.eleve16 = 53546855516488;
 
   </script>
   <noscript>
