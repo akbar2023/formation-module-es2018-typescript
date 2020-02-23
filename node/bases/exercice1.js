@@ -83,3 +83,5 @@
 /**
  * Sami Radi - VirtuoWorks® - tous droits réservés©
 **/
+
+console.log(process.argv);

@@ -12,6 +12,11 @@ for (let i = 0; i < 100; i++) {
     1. Exécutez ce programme avec Node JS.
 **/
 
+/* 
+  *** Solution ***
+  on cmd: node .\exercice0.js
+*/
+
 /**
  * Sami Radi - VirtuoWorks® - tous droits réservés©
 **/

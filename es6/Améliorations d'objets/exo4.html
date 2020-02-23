@@ -72,20 +72,20 @@
 
       let ressort = {
         sensDeContraction: null,
-        longueur: 20,
+        longueur: null,
         
-        contracter(diviseur) {
-          sensDeContraction = diviseur;
+        contracter(diviseur, longueur) {
+          this.sensDeContraction = diviseur; // on utilise sqeulement le signe (+/-)
+          this.longueur = longueur;
           let result = this.longueur / diviseur;
           return result;
         },
         
         decontracter: function(length) {
-          if(sensDeContraction > 0) {
-            debugger;
+          if(this.sensDeContraction > 0) {
             return this.longueur = length;
           }
-          if(sensDeContraction < 0) {
+          if(this.sensDeContraction < 0) {
             return this.longueur = -length;
           }
         }
@@ -95,8 +95,6 @@
       /*
       2) Contracter le ressort à 0. 
       ressort.contracter(+Infinity);
-
-      3) 
       */
     </script>
     <noscript>

@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Améliorations de tableaux</title>
-  </head>
-  <body>
-    <script>
-      /*
-        NOUVEAU !
-        ES6 introduit 2 nouvelles méthodes pour la création de tableaux,
-        `Array.from()` et `Array.of()`.
 
-        `Array.from()` renvoie un nouveau tableau à partir d'un objet itérable
-        (chaîne de caractère par exemple) ou semblable à un tableau.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Améliorations de tableaux</title>
+</head>
 
-        On appelle itérable un objet dont les propriétés peuvent être parcourues
-        dans une boucle for
+<body>
 
-        Un objet semblable à un tableau (array-like) est un objet qui possède
-        une propriété `.length`. Par exemple :
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>5</div>
 
-          const tableau = Array.from({ length: 3 });
-          console.log(tableau); // [undefined, undefined, undefined]
+  <script>
+    /*
+      NOUVEAU !
+      ES6 introduit 2 nouvelles méthodes pour la création de tableaux,
+      `Array.from()` et `Array.of()`.
 
-        Documentation :
-        - https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/from
-        - https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/of
-      */
+      `Array.from()` renvoie un nouveau tableau à partir d'un objet itérable
+      (chaîne de caractère par exemple) ou semblable à un tableau.
 
-      /*
-        1. Créez 10 div qui contiennent chacune un nombre de 1 à 10.
+      On appelle itérable un objet dont les propriétés peuvent être parcourues
+      dans une boucle for
 
-        2. Récuperez une référence à la collection contenant toutes les div du
-        document. Vous pouvez utiliser window.document.getElementsByTagName()
+      Un objet semblable à un tableau (array-like) est un objet qui possède
+      une propriété `.length`. Par exemple :
 
-        3. En utilisant Array.from() et son deuxième argument optionnel (voir
-        documentation), obtenez un Array contenant chaque nombre de chaque div.
-        (c'est à dire [1,2,3,4,5,6,7,8,9,10])
-      */
-    </script>
-    <noscript>
-      <p>VirtuoWorks® - tous droits réservés©</p>
-    </noscript>
-  </body>
+        const tableau = Array.from({ length: 3 });
+        console.log(tableau); // [undefined, undefined, undefined]
+
+      Documentation :
+      - https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/from
+      - https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/of
+    */
+
+    /*
+      1. Créez 10 div qui contiennent chacune un nombre de 1 à 10.
+
+      2. Récuperez une référence à la collection contenant toutes les div du
+      document. Vous pouvez utiliser window.document.getElementsByTagName()
+
+      3. En utilisant Array.from() et son deuxième argument optionnel (voir
+      documentation), obtenez un Array contenant chaque nombre de chaque div.
+      (c'est à dire [1,2,3,4,5])
+    */
+
+
+    let divs = document.getElementsByTagName("div");
+    let values = [];
+    // debugger;
+    for (let i = 0; i < divs.length; i++) {
+      values.push(Number(divs[i].outerText)); // tranforme en number avant d'insérer dans l'array values
+    }
+
+    console.log(Array.from(values)); // Affiche une copie de l'array values dans la console
+  </script>
+  <noscript>
+    <p>VirtuoWorks® - tous droits réservés©</p>
+  </noscript>
+</body>
+
 </html>
