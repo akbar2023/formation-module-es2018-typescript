@@ -84,4 +84,26 @@
  * Sami Radi - VirtuoWorks® - tous droits réservés©
 **/
 
-console.log(process.argv);
+
+// console.log(__filename);
+
+// console.log(__dirname);
+
+// console.log(`Current directory: ${process.cwd()}`);
+
+// console.log(process.argv);
+
+
+
+function sayHelloNTime(n) {
+  if (isNaN(n)) {
+    console.log("Au revoir !");
+  } else {
+    for (let i = 0; i < process.argv[2]; i++) {
+      console.log(`Bonjour ${i} fois`)
+    }
+  }
+
+}
+
+sayHelloNTime(process.argv[2]);
