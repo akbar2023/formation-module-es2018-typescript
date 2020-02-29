@@ -101,3 +101,6 @@
 /**
  * Sami Radi - VirtuoWorks® - tous droits réservés©
 **/
+
+console.log("Je suis le module principal");
+const mod = module.require('./exercice2-module.js');
