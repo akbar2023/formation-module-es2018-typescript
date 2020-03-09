@@ -95,15 +95,27 @@
 
 
 
-function sayHelloNTime(n) {
-  if (isNaN(n)) {
-    console.log("Au revoir !");
-  } else {
-    for (let i = 0; i < process.argv[2]; i++) {
-      console.log(`Bonjour ${i} fois`)
-    }
-  }
+// function sayHelloNTime(n) {
+//   if (isNaN(n)) {
+//     console.log("Au revoir !");
+//   } else {
+//     for (let i = 0; i < process.argv[2]; i++) {
+//       console.log(`Bonjour ${i} fois`)
+//     }
+//   }
 
+// }
+
+// sayHelloNTime(process.argv[2]);
+
+
+// Question 3 de l'exercice 2:
+
+const sayHelloNTime = (times) => {
+  if (isNaN(times)) { console.log("L'argument donné n'est pas un nombre !"); }
+  else {
+    for (let i = 1; i <= times; i++) { console.log(`Bonjour ${i} fois`); }
+  }
 }
 
-sayHelloNTime(process.argv[2]);
+module.exports.sayHelloNTime = sayHelloNTime;

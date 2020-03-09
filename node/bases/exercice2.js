@@ -102,5 +102,20 @@
  * Sami Radi - VirtuoWorks® - tous droits réservés©
 **/
 
-console.log("Je suis le module principal");
-const mod = module.require('./exercice2-module.js');
+// Question 1
+// console.log("Je suis le module principal");
+const presentationModule = module.require('./modules/exercice2-module.js');
+
+// Question 2
+const SayHello = module.require("./exercice1.js");
+
+// console.log(SayHello);
+SayHello.sayHelloNTime(10);
+console.log(presentationModule);
+
+
+// Question 3
+console.log(jeMePresente[0] + " " + jeMePresente[1] + " " + jeMePresente[2]);
+presentation = new presentationModule.Presentation();
+// console.log(presentation);
+
